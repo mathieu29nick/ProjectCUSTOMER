@@ -1,5 +1,6 @@
-com\mycompany\projectcustomer\resources\JakartaEE10Resource.class
 com\mycompany\projectcustomer\entity\Customer.class
 com\mycompany\projectcustomer\entity\Discount.class
 com\mycompany\projectcustomer\entity\MicroMarket.class
 com\mycompany\projectcustomer\JakartaRestConfiguration.class
+com\mycompany\projectcustomer\resources\JakartaEE10Resource.class
+com\mycompany\projectcustomer\service\CustomerManager.class
