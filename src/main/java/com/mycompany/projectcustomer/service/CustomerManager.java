@@ -6,8 +6,9 @@ package com.mycompany.projectcustomer.service;
 
 /**
  * Façade pour gérer les Customers.
+ *
  * @author rakot
-*/
+ */
 import com.mycompany.projectcustomer.entity.Customer;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
@@ -18,21 +19,26 @@ import java.util.List;
 
 @RequestScoped
 public class CustomerManager {
+
     @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
 
     @Transactional
     public void persist(Customer customer) {
-      em.persist(customer);
+        em.persist(customer);
     }
-    
-    public List<Customer> getAllCustomers() {  
-      Query query = em.createNamedQuery("Customer.findAll");
-      return query.getResultList();
-    }  
+
+    public List<Customer> getAllCustomers() {
+        Query query = em.createNamedQuery("Customer.findAll");
+        return query.getResultList();
+    }
 
     @Transactional
     public Customer update(Customer customer) {
-      return em.merge(customer);  
-    }   
+        return em.merge(customer);
+    }
+
+    public Customer findById(int idCustomer) {
+        return em.find(Customer.class, idCustomer);
+    }
 }
