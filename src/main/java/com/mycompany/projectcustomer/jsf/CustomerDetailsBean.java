@@ -12,6 +12,8 @@ import java.io.Serializable;
 import jakarta.inject.Inject;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -67,9 +69,30 @@ public class CustomerDetailsBean implements Serializable {
 
     /**
      * Retourne la liste de tous les Discount.
-     * @return 
+     *
+     * @return
      */
     public List<Discount> getDiscounts() {
         return discountManager.getAllDiscounts();
+    }
+
+    /**
+     * Retourne discounts par ordre croissant
+     * @return 
+     */
+    public List<Discount> getDiscountsAscending() {
+        List<Discount> discounts = discountManager.getAllDiscounts();
+        Collections.sort(discounts, Comparator.comparing(Discount::getRate));
+        return discounts;
+    }
+
+    /**
+     * Retourne discounts par ordre decroissant
+     * @return 
+     */
+    public List<Discount> getDiscountsDescending() {
+        List<Discount> discounts = discountManager.getAllDiscounts();
+        Collections.sort(discounts, Comparator.comparing(Discount::getRate).reversed());
+        return discounts;
     }
 }
