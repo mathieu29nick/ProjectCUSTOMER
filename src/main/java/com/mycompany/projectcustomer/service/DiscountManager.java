@@ -20,7 +20,7 @@ import java.util.List;
 @RequestScoped
 public class DiscountManager {
 
-    @PersistenceContext(unitName = "discountPU")
+    @PersistenceContext(unitName = "customerPU")
     private EntityManager dm;
 
     @Transactional
@@ -28,7 +28,7 @@ public class DiscountManager {
         dm.persist(discount);
     }
 
-    public List<Discount> getAllCustomers() {
+    public List<Discount> getAllDiscounts() {
         Query query = dm.createNamedQuery("Discount.findAll");
         return query.getResultList();
     }

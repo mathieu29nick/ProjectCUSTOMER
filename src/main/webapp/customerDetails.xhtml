@@ -36,6 +36,10 @@
                     <h:inputText id="email" value="#{customerDetailsBean.customer.email}" title="Email" />
                     <h:outputLabel value="CreditLimit:" for="creditLimit" />
                     <h:inputText id="creditLimit" value="#{customerDetailsBean.customer.creditLimit}" title="CreditLimit" />
+                    <h:outputLabel value="DiscountCode:" for="discount" />
+                    <h:selectOneMenu id="Code" value="#{customerDetailsBean.customer.discount.code}">
+                        <f:selectItems value="#{customerDetailsBean.discounts}" var="discount" itemLabel="#{customerDetailsBean.customer.discount.code} : #{customerDetailsBean.customer.discount.rate} %" />
+                    </h:selectOneMenu>
                 </h:panelGrid>
             </h:form>
         </f:view>
