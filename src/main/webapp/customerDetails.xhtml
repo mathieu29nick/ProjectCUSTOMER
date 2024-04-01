@@ -61,7 +61,7 @@
                 </h:panelGrid>
                 <h:messages/>
             </h:form>
-            <!-- Si le firmulaire ne réponds pas -->
+            <!-- Si le serveur ne trouve aucun customer avec l'ID présent dans la requête -->
             <h:outputText value="Aucun client avec l'id #{customerDetailsBean.idCustomer} !" 
                           rendered='#{customerDetailsBean.customer == null}' 
                           style="font-weight: bold; color: red;" />
