@@ -36,4 +36,22 @@ public class DiscountManager {
     public Discount findById(String code) {
         return dm.find(Discount.class, code);
     }
+
+    /**
+     * trier par ordre croissant
+     * @return
+     */
+    public List<Discount> getAllDiscountsAscending() {
+        Query query = dm.createQuery("SELECT d FROM Discount d ORDER BY d.rate ASC");
+        return query.getResultList();
+    }
+
+    /**
+     * trier par ordre decroisssant
+     * @return
+     */
+    public List<Discount> getAllDiscountsDescending() {
+        Query query = dm.createQuery("SELECT d FROM Discount d ORDER BY d.rate DESC");
+        return query.getResultList();
+    }
 }

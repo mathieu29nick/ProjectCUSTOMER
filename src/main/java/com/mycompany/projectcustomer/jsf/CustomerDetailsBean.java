@@ -77,22 +77,18 @@ public class CustomerDetailsBean implements Serializable {
     }
 
     /**
-     * Retourne discounts par ordre croissant
-     * @return 
+     * appel directement le fonction tri pae desc dans discountManager
+     * @return
      */
     public List<Discount> getDiscountsAscending() {
-        List<Discount> discounts = discountManager.getAllDiscounts();
-        Collections.sort(discounts, Comparator.comparing(Discount::getRate));
-        return discounts;
+        return discountManager.getAllDiscountsAscending();
     }
 
     /**
-     * Retourne discounts par ordre decroissant
-     * @return 
+     * appel directement le fonction tri pae desc dans discountManager
+     * @return
      */
     public List<Discount> getDiscountsDescending() {
-        List<Discount> discounts = discountManager.getAllDiscounts();
-        Collections.sort(discounts, Comparator.comparing(Discount::getRate).reversed());
-        return discounts;
+        return discountManager.getAllDiscountsDescending();
     }
 }
